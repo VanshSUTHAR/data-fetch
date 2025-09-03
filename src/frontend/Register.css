@@ -1,88 +1,110 @@
-/* Apply basic layout and font */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
   margin: 0;
   padding: 0;
+  color: #333;
 }
 
-/* Navigation styling */
 nav {
-  background-color: #333;
-  padding: 10px;
+  background-color: #4b6cb7;
+  background-image: linear-gradient(to right, #182848, #4b6cb7);
+  padding: 16px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 nav a {
-  color: white;
-  margin: 0 15px;
+  color: #ffffff;
+  margin: 0 20px;
   text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #ffdd57;
+  transform: scale(1.1);
 }
 
-/* Form container */
 div > div {
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-/* Form heading */
+div > div:hover {
+  transform: translateY(-4px);
+}
+
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+  font-size: 2rem;
+  color: #2c3e50;
 }
 
-/* Form fields */
 label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
 }
 
 input,
 select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Error messages */
+input:focus,
+select:focus {
+  border-color: #4b6cb7;
+  box-shadow: 0 0 6px rgba(75, 108, 183, 0.3);
+  outline: none;
+}
+
 .error {
-  color: red;
+  color: #e63946;
   font-size: 0.9em;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  margin-top: -8px;
+  margin-bottom: 12px;
 }
 
-/* Submit button */
 button[type="submit"] {
   width: 100%;
-  padding: 10px;
-  background-color: #0077cc;
-  color: white;
+  padding: 14px;
+  background-color: #4b6cb7;
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
-  font-size: 1em;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button[type="submit"]:hover {
-  background-color: #005fa3;
+  background-color: #3a539b;
+  transform: scale(1.02);
 }
 
-/* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #eee;
-  margin-top: 40px;
+  padding: 24px;
+  background-color: #eaeaea;
+  margin-top: 60px;
+  font-size: 1rem;
+  color: #666;
 }
