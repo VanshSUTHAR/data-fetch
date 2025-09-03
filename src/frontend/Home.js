@@ -23,15 +23,15 @@ const Home = () => {
     return (
     <div> 
         <nav>
-        <Link to="/Home">home</Link>
-        <Link to="/Inform">information</Link>
+        <Link to="/Home">Home</Link>
+        <Link to="/Inform">Information</Link>
 
-        {userRole?.role === "admin" && <Link to="/Listing">list</Link>}
+        {userRole?.role === "admin" && <Link to="/Listing">List</Link>}
 
         {!userRole && (
           <>
             <Link to="/">Login</Link>
-            <Link to="/Register">register</Link>
+            <Link to="/Register">Register</Link>
           </>
         )}
         <button onClick={handleLogout}>Logout</button>
@@ -218,4 +218,5 @@ const Home = () => {
     </div>
     )
 }
+
 export default Home;    
