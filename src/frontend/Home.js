@@ -23,21 +23,21 @@ const Home = () => {
     return (
     <div> 
         <nav>
-        <Link to="/Home">Home</Link>
-        <Link to="/Inform">Information</Link>
+        <Link to="/Home">home</Link>
+        <Link to="/Inform">information</Link>
 
-        {userRole?.role === "admin" && <Link to="/Listing">List</Link>}
+        {userRole?.role === "admin" && <Link to="/Listing">list</Link>}
 
         {!userRole && (
           <>
             <Link to="/">Login</Link>
-            <Link to="/Register">Register</Link>
+            <Link to="/Register">register</Link>
           </>
         )}
         <button onClick={handleLogout}>Logout</button>
       </nav>
         <div>
-      
+            <h1>Home page</h1>
             <p>
                 Welcome to area of introduction about INDIAN CRICKET TEAM Rightnow there are 3 different captain of india in 3 formats
                 in ODI - Rohit , in T20 - Surya & in TEST - Shubhman.;
@@ -50,18 +50,6 @@ const Home = () => {
                 But right now Because Mr.Aajit Agarkar india had 3 differntcaptians in 3 formats ,
                 Because of the reason they remove rohit from test captainship and make pressure on him to leave test
                 so he deside take retirement from the test.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum vitae sapien nec justo tincidunt fermentum.
-                Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
-                Sed rhoncus magna at sapien gravida, in lacinia erat porta.
-                Phasellus tempus turpis nec velit convallis, a tincidunt nulla blandit.
-                Maecenas sit amet purus in odio pretium dignissim.
-                Aliquam erat volutpat. Integer vel justo nec sapien bibendum sodales.
-                Donec euismod, nisl a mattis gravida, justo sapien tincidunt nulla.
-                Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
-                Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
-            </p>
-
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum vitae sapien nec justo tincidunt fermentum.
                 Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
@@ -95,40 +83,6 @@ const Home = () => {
                 Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
                 Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
             </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum vitae sapien nec justo tincidunt fermentum.
-                Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
-                Sed rhoncus magna at sapien gravida, in lacinia erat porta.
-                Phasellus tempus turpis nec velit convallis, a tincidunt nulla blandit.
-                Maecenas sit amet purus in odio pretium dignissim.
-                Aliquam erat volutpat. Integer vel justo nec sapien bibendum sodales.
-                Donec euismod, nisl a mattis gravida, justo sapien tincidunt nulla.
-                Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
-                Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum vitae sapien nec justo tincidunt fermentum.
-                Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
-                Sed rhoncus magna at sapien gravida, in lacinia erat porta.
-                Phasellus tempus turpis nec velit convallis, a tincidunt nulla blandit.
-                Maecenas sit amet purus in odio pretium dignissim.
-                Aliquam erat volutpat. Integer vel justo nec sapien bibendum sodales.
-                Donec euismod, nisl a mattis gravida, justo sapien tincidunt nulla.
-                Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
-                Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum vitae sapien nec justo tincidunt fermentum.
-                Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
-                Sed rhoncus magna at sapien gravida, in lacinia erat porta.
-                Phasellus tempus turpis nec velit convallis, a tincidunt nulla blandit.
-                Maecenas sit amet purus in odio pretium dignissim.
-                Aliquam erat volutpat. Integer vel justo nec sapien bibendum sodales.
-                Donec euismod, nisl a mattis gravida, justo sapien tincidunt nulla.
-                Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
-                Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
-            </p>
-
             <p>After that kohli also retired from the test cricket</p>
             <p>Because of dirty politics india's top bestman virat and rohit retire from test cricket
                 after that now we have get some rummors that bcci like to remove rohit from ODI captainship and make
@@ -218,5 +172,4 @@ const Home = () => {
     </div>
     )
 }
-
 export default Home;    
