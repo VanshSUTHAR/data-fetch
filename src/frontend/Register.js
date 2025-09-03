@@ -59,13 +59,13 @@ function Register() {
   return (
     <div>
       <nav>
-        <Link to="/Home">home</Link>
-        <Link to="/Inform">information</Link>
-        {currentUser?.role === 'admin' && <Link to="/Listing">list</Link>}
+        <Link to="/Home">Home</Link>
+        <Link to="/Inform">Information</Link>
+        {currentUser?.role === 'admin' && <Link to="/Listing">List</Link>}
         {!currentUser && (
           <>
             <Link to="/">Login</Link>
-            <Link to="/Register">register</Link>
+            <Link to="/Register">Register</Link>
           </>
         )}
       </nav>
@@ -153,3 +153,4 @@ function Register() {
 }
 
 export default Register;
+
