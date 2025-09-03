@@ -23,51 +23,20 @@ const Inform = () => {
 
   return (
     <div>   <nav>
-      <Link to="/Home">Home</Link>
-      <Link to="/Inform">Information</Link>
+      <Link to="/Home">home</Link>
+      <Link to="/Inform">information</Link>
 
-      {userRole?.role === "admin" && <Link to="/Listing">List</Link>}
+      {userRole?.role === "admin" && <Link to="/Listing">list</Link>}
 
       {!userRole && (
         <>
           <Link to="/">Login</Link>
-          <Link to="/Register">Register</Link>
+          <Link to="/Register">register</Link>
         </>
       )}
       <button onClick={handleLogout}>Logout</button>
     </nav><div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Vestibulum vitae sapien nec justo tincidunt fermentum.
-          Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
-          Sed rhoncus magna at sapien gravida, in lacinia erat porta.
-          Phasellus tempus turpis nec velit convallis, a tincidunt nulla blandit.
-          Maecenas sit amet purus in odio pretium dignissim.
-          Aliquam erat volutpat. Integer vel justo nec sapien bibendum sodales.
-          Donec euismod, nisl a mattis gravida, justo sapien tincidunt nulla.
-          Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
-          Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
-        </p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Vestibulum vitae sapien nec justo tincidunt fermentum.
-          Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
-          Sed rhoncus magna at sapien gravida, in lacinia erat porta.
-          Phasellus tempus turpis nec velit convallis, a tincidunt nulla blandit.
-          Maecenas sit amet purus in odio pretium dignissim.
-          Aliquam erat volutpat. Integer vel justo nec sapien bibendum sodales.
-          Donec euismod, nisl a mattis gravida, justo sapien tincidunt nulla.
-          Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
-          Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Vestibulum vitae sapien nec justo tincidunt fermentum.
-          Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
-          Sed rhoncus magna at sapien gravida, in lacinia erat porta.
-          Phasellus tempus turpis nec velit convallis, a tincidunt nulla blandit.
-          Maecenas sit amet purus in odio pretium dignissim.
-          Aliquam erat volutpat. Integer vel justo nec sapien bibendum sodales.
-          Donec euismod, nisl a mattis gravida, justo sapien tincidunt nulla.
-          Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
-          Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
-        </p>
+        <h1>Information Page</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Vestibulum vitae sapien nec justo tincidunt fermentum.
           Curabitur euismod nunc vel nisi facilisis, ut cursus leo luctus.
@@ -221,4 +190,3 @@ const Inform = () => {
 };
 
 export default Inform;
-
