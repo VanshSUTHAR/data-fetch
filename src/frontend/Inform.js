@@ -1,41 +1,51 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import './Inform.css'
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../slice/loginSlice"; import './Inform.css'
 
 const Inform = () => {
-  const [userRole, setUserRole] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [userRole, setUserRole] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      setUserRole(parsedUser);
+      dispatch(setCurrentUser(parsedUser));
+    }
+  }, [dispatch]);
 
   const handleLogout = () => {
-    if (window.confirm('Are you sure you want to logout?')) {
-      localStorage.removeItem('user');
-      navigate('/login');
+    if (window.confirm("Are you sure you want to logout?")) {
+      localStorage.removeItem("user");
+      dispatch(setCurrentUser(null));
+      navigate("/login");
     }
   };
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-      setUserRole(parsedUser.role);
-    }
-  }, []);
-
   return (
-    <div>   <nav>
-      <Link to="/Home">home</Link>
-      <Link to="/Inform">information</Link>
+    <div>
+      <nav>
+        <Link to="/Home">Home</Link>
+        <Link to="/Inform">Information</Link>
 
-      {userRole?.role === "admin" && <Link to="/Listing">list</Link>}
+        {userRole?.role === "admin" && <Link to="/Listing">List</Link>}
 
-      {!userRole && (
-        <>
-          <Link to="/">Login</Link>
-          <Link to="/Register">register</Link>
-        </>
-      )}
-      <button onClick={handleLogout}>Logout</button>
-    </nav><div>
+        {userRole && (
+          <>
+            <Link to="/">Login</Link>
+            <Link to="/Register">Register</Link>
+          </>
+        )}
+
+
+        <button onClick={handleLogout}>
+          Logout
+        </button>
+      </nav>
+      <div>
         <h1>Information Page</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Vestibulum vitae sapien nec justo tincidunt fermentum.
@@ -181,10 +191,10 @@ const Inform = () => {
         </p>
 
       </div>
-        <footer>
-               <h3>THANKYOU FOR VISITING!</h3>
+      <footer>
+        <h3>THANKYOU FOR VISITING!</h3>
       </footer>
-   
+
     </div>
   );
 };
