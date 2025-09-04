@@ -1,43 +1,54 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import './Home.css'
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../slice/loginSlice";
+import './Home.css';
+
 const Home = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [userRole, setUserRole] = useState(null);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem('user');
+        const storedUser = localStorage.getItem("user");
         if (storedUser) {
             const parsedUser = JSON.parse(storedUser);
-            setUserRole(parsedUser.role);
+            setUserRole(parsedUser);
+            dispatch(setCurrentUser(parsedUser));
         }
-    }, [])
+    }, [dispatch]);
 
     const handleLogout = () => {
-        if (window.confirm('are you sure You want to logout?')) {
-            localStorage.removeItem('user');
-            navigate('/login')
+        if (window.confirm("Are you sure you want to logout?")) {
+            localStorage.removeItem("user");
+            dispatch(setCurrentUser(null));
+            navigate("/login");
         }
-    }
- 
+    };
+
     return (
-    <div> 
-        <nav>
-        <Link to="/Home">home</Link>
-        <Link to="/Inform">information</Link>
-
-        {userRole?.role === "admin" && <Link to="/Listing">list</Link>}
-
-        {!userRole && (
-          <>
-            <Link to="/">Login</Link>
-            <Link to="/Register">register</Link>
-          </>
-        )}
-        <button onClick={handleLogout}>Logout</button>
-      </nav>
         <div>
-            <h1>Home page</h1>
+            <nav>
+                <Link to="/Home">Home</Link>
+                <Link to="/Inform">Information</Link>
+
+                {userRole?.role === "admin" && <Link to="/Listing">List</Link>}
+
+                {userRole && (
+                    <>
+                        <Link to="/">Login</Link>
+                        <Link to="/Register">Register</Link>
+                    </>
+                )}
+
+
+                <button onClick={handleLogout}>
+                    Logout
+                </button>
+            </nav>
+
+      <div>
+         <h1>Home page</h1>
             <p>
                 Welcome to area of introduction about INDIAN CRICKET TEAM Rightnow there are 3 different captain of india in 3 formats
                 in ODI - Rohit , in T20 - Surya & in TEST - Shubhman.;
@@ -163,13 +174,13 @@ const Home = () => {
                 Suspendisse potenti. Morbi non felis nec sapien convallis vehicula.
                 Etiam imperdiet lorem ut sapien tincidunt, sed luctus magna iaculis.
             </p>
-
         </div>
-        <footer>
-               <h3>THANKYOU FOR VISITING!</h3>
-        </footer>
-   
+
+      <footer>
+        <h3>THANK YOU FOR VISITING!</h3>
+      </footer>
     </div>
-    )
-}
-export default Home;    
+  );
+};
+
+export default Home;
