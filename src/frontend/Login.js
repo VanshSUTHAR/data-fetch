@@ -57,22 +57,22 @@ function Login() {
     }
   };
   return (
-    <div>
-      <nav>
-        <Link to="/Home">Home</Link>
-        <Link to="/Inform">Information</Link>
 
-        {currentUser?.role === "admin" && <Link to="/Listing">list</Link>}
+        <div>
+            <nav>
+                <Link to="/Home">Home</Link>
+                <Link to="/Inform">Information</Link>
 
-        {!currentUser && (
-          <>
-            <Link to="/">Login</Link>
-            <Link to="/Register">Register</Link>
-          </>
-        )}
-      </nav>
+                {currentUser?.role === "admin" && <Link to="/Listing">List</Link>}
 
-      <div>
+                {!currentUser && (
+                    <>
+                        <Link to="/">Login</Link>
+                        <Link to="/Register">Register</Link>
+                    </>
+                )}
+            </nav>
+            <div>
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={validationSchema}
@@ -111,5 +111,4 @@ function Login() {
 }
 
 export default Login;
-
 
