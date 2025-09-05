@@ -61,7 +61,8 @@ function Register() {
       <nav>
         <Link to="/Home">Home</Link>
         <Link to="/Inform">Information</Link>
-        {currentUser?.role === 'admin' && <Link to="/Listing">List</Link>}
+
+
         {!currentUser && (
           <>
             <Link to="/">Login</Link>
@@ -144,13 +145,12 @@ function Register() {
           </Form>
         </Formik>
       </div>
-       <footer>
-               <h3>THANKYOU FOR VISITING!</h3>
+      <footer>
+        <h3>THANKYOU FOR VISITING!</h3>
       </footer>
-   
+
     </div>
   );
 }
 
 export default Register;
-
