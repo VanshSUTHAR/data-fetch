@@ -1,26 +1,19 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setCurrentUser } from "../slice/loginSlice"; import './Inform.css'
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../slice/loginSlice";
+import { persistor } from "../store";
+import './Inform.css';
 
 const Inform = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [userRole, setUserRole] = useState(null);
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-      setUserRole(parsedUser);
-      dispatch(setCurrentUser(parsedUser));
-    }
-  }, [dispatch]);
+  const currentUser = useSelector((state) => state.login.currentUser);
 
   const handleLogout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
       localStorage.removeItem("user");
-      dispatch(setCurrentUser(null));
+      dispatch(logoutUser(null));
+      persistor.purge();
       navigate("/login");
     }
   };
@@ -31,19 +24,18 @@ const Inform = () => {
         <Link to="/Home">Home</Link>
         <Link to="/Inform">Information</Link>
 
-        {userRole?.role === "admin" && <Link to="/Listing">List</Link>}
+        {currentUser?.role === "admin" && <Link to="/Listing">List</Link>}
 
-        {userRole && (
+        {!currentUser && (
           <>
             <Link to="/">Login</Link>
             <Link to="/Register">Register</Link>
           </>
         )}
 
-
-        <button onClick={handleLogout}>
-          Logout
-        </button>
+        {currentUser && (
+          <button onClick={handleLogout}>Logout</button>
+        )}
       </nav>
       <div>
         <h1>Information Page</h1>
